@@ -232,17 +232,24 @@
         }
 
         .contribution-card {
-            padding: 1.25rem;
+            padding: 1.5rem;
+            min-height: fit-content;
+            overflow: visible;
+        }
+
+        .contribution-card .card-content {
+            overflow: visible;
         }
 
         .contribution-card .card-number {
             font-size: 2rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .contribution-card .card-title {
             font-size: 1.2rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
         }
 
         .contribution-card .card-content {
@@ -252,14 +259,16 @@
 
         .contribution-card .card-content ul {
             margin: 0.5rem 0;
-            max-height: 150px;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .contribution-card .card-content li {
-            padding: 0.35rem 0;
+            padding: 0.5rem 0;
             padding-left: 1.25rem;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .contribution-card .card-content li:nth-child(n+4) {
@@ -285,9 +294,11 @@
         }
 
         .contribution-card .project-details-btn {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.85rem;
-            margin-top: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            width: 100%;
+            white-space: nowrap;
         }
 
         .contribution-card .progress-container {
