@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nishant - Performance & Growth Report | November 2025</title>
+    
+    <!-- Favicon - Developer Icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grad)' rx='22'/%3E%3Cpath d='M30 30 L50 20 L70 30 L70 50 L50 60 L30 50 Z' fill='white' opacity='0.9' filter='url(%23glow)'/%3E%3Cpath d='M35 35 L50 28 L65 35 L65 45 L50 52 L35 45 Z' fill='none' stroke='white' stroke-width='2' opacity='0.7'/%3E%3Ccircle cx='50' cy='40' r='3' fill='white'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grad)' rx='22'/%3E%3Cpath d='M30 30 L50 20 L70 30 L70 50 L50 60 L30 50 Z' fill='white' opacity='0.9' filter='url(%23glow)'/%3E%3Cpath d='M35 35 L50 28 L65 35 L65 45 L50 52 L35 45 Z' fill='none' stroke='white' stroke-width='2' opacity='0.7'/%3E%3Ccircle cx='50' cy='40' r='3' fill='white'/%3E%3C/svg%3E">
+    <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Nishant%20Performance%20Report%22%2C%22short_name%22%3A%22Nishant%22%2C%22theme_color%22%3A%22%236366f1%22%7D">
     <style>
         * {
             margin: 0;
@@ -222,7 +227,12 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(99, 102, 241, 0.2);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            z-index: 1;
+        }
+
+        .card:hover {
+            z-index: 10;
         }
 
         /* Compact cards for Key Contributions section */
@@ -235,6 +245,11 @@
             padding: 1.5rem;
             min-height: fit-content;
             overflow: visible;
+            z-index: 1;
+        }
+
+        .contribution-card:hover {
+            z-index: 10;
         }
 
         .contribution-card .card-content {
@@ -799,24 +814,6 @@
             animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .name {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
 
         /* Progress Bar Animation */
         .progress-container {
@@ -1213,22 +1210,6 @@
             }
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .network-diagram {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-            
-            .network-node {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .node-icon {
-                font-size: 2rem;
-            }
-        }
 
         /* Skill Radar */
         .skill-radar {
@@ -1646,97 +1627,808 @@
             font-weight: bold;
         }
 
-        /* Project Flow/Timeline */
+        /* Project Flow/Timeline - Creative Design */
         .project-flow {
             position: relative;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             margin: 3rem 0;
-            background: rgba(99, 102, 241, 0.05);
-            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border-radius: 20px;
             overflow-x: auto;
+            overflow-y: visible;
+            border: 2px solid rgba(99, 102, 241, 0.1);
         }
 
         .flow-container {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
             min-width: fit-content;
             position: relative;
+            padding: 1rem 0;
+        }
+
+        /* Animated connecting line */
+        .flow-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--primary-color) 0%, 
+                var(--secondary-color) 50%, 
+                var(--accent-color) 100%);
+            transform: translateY(-50%);
+            z-index: 0;
+            border-radius: 2px;
+            animation: flow-line-animate 3s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+        }
+
+        @keyframes flow-line-animate {
+            0%, 100% {
+                opacity: 0.5;
+                box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
+            }
         }
 
         .flow-node {
             background: var(--light-bg);
-            border: 2px solid var(--primary-color);
-            border-radius: 15px;
-            padding: 1.5rem;
-            min-width: 200px;
+            border: 3px solid var(--primary-color);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            min-width: 180px;
             text-align: center;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
+            overflow: visible;
         }
 
-        .flow-node:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
-            border-color: var(--accent-color);
+        .flow-node::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 20px;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
         }
 
         .flow-node::after {
             content: '→';
             position: absolute;
-            right: -2.5rem;
+            right: -2rem;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
-            animation: flow-arrow 2s infinite;
+            animation: flow-arrow 2s ease-in-out infinite;
+            z-index: 2;
+            filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.5));
         }
 
         .flow-node:last-child::after {
             display: none;
         }
 
+        .flow-node:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.5), 0 0 30px rgba(99, 102, 241, 0.3);
+            border-color: var(--accent-color);
+            z-index: 10;
+        }
+
+        .flow-node:hover::before {
+            opacity: 0.15;
+        }
+
         @keyframes flow-arrow {
-            0%, 100% { transform: translateY(-50%) translateX(0); }
-            50% { transform: translateY(-50%) translateX(10px); }
+            0%, 100% { 
+                transform: translateY(-50%) translateX(0);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(-50%) translateX(15px);
+                opacity: 1;
+            }
         }
 
         .flow-node-number {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            position: relative;
+            animation: number-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes number-glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.8));
+            }
         }
 
         .flow-node-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .flow-node-desc {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
+            padding: 0.5rem;
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            display: inline-block;
         }
 
-        /* Connection Line */
-        .flow-connection {
+        .flow-node:hover .flow-node-desc {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--text-primary);
+        }
+
+        /* Progress indicator */
+        .flow-progress {
             position: absolute;
-            height: 2px;
-            background: var(--gradient-1);
-            top: 50%;
-            z-index: -1;
-            animation: flow-line 3s infinite;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 4px;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
         }
 
-        @keyframes flow-line {
-            0% { opacity: 0.3; }
-            50% { opacity: 1; }
-            100% { opacity: 0.3; }
+        .flow-progress-bar {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 2px;
+            animation: progress-flow 2s ease-in-out infinite;
+        }
+
+        @keyframes progress-flow {
+            0% {
+                width: 0%;
+                opacity: 0.5;
+            }
+            50% {
+                width: 100%;
+                opacity: 1;
+            }
+            100% {
+                width: 0%;
+                opacity: 0.5;
+            }
+        }
+
+        /* ============================================
+           COMPREHENSIVE RESPONSIVE DESIGN
+           ============================================ */
+
+        /* Large Tablets and Small Desktops (1024px - 1200px) */
+        @media (max-width: 1200px) {
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .cards-container {
+                gap: 1.5rem;
+            }
+
+            .expertise-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        /* Tablets (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .network-diagram {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .goals-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-dashboard {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .db-schema {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Standard Tablets (768px) */
+        @media (max-width: 768px) {
+            /* Header */
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .role {
+                font-size: 1.2rem;
+            }
+
+            .date {
+                font-size: 1rem;
+            }
+
+            .overview-text {
+                font-size: 1rem;
+            }
+
+            .tech-stack {
+                gap: 0.5rem;
+            }
+
+            .tech-badge {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            /* Sections */
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Cards */
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contribution-card {
+                padding: 1.25rem;
+            }
+
+            /* Stats */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            /* Tech Expertise */
+            .expertise-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .category-icon {
+                font-size: 2rem;
+            }
+
+            .category-title {
+                font-size: 1.1rem;
+            }
+
+            /* Project Flow */
+            .project-flow {
+                padding: 2rem 1rem;
+            }
+
+            .flow-container {
+                gap: 1rem;
+            }
+
+            .flow-node {
+                min-width: 150px;
+                padding: 1.5rem 1rem;
+            }
+
+            .flow-node::after {
+                right: -1.5rem;
+                font-size: 2rem;
+            }
+
+            .flow-node-number {
+                font-size: 2rem;
+            }
+
+            .flow-node-title {
+                font-size: 1rem;
+            }
+
+            .flow-node-desc {
+                font-size: 0.8rem;
+            }
+
+            /* Goals */
+            .goals-list {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .goal-item {
+                padding: 1.5rem;
+            }
+
+            .goal-icon {
+                font-size: 2.5rem;
+            }
+
+            .goal-title {
+                font-size: 1.1rem;
+            }
+
+            /* Metrics */
+            .metrics-dashboard {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .metric-card {
+                padding: 1.25rem;
+            }
+
+            .metric-value {
+                font-size: 1.5rem;
+            }
+
+            /* Database Schema */
+            .db-schema {
+                grid-template-columns: 1fr;
+            }
+
+            /* Terminal */
+            .terminal-body {
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+
+            /* API Endpoints */
+            .api-endpoint {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .api-method {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            /* Modal */
+            .modal-content {
+                padding: 1.5rem;
+                width: 95%;
+                max-height: 85vh;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Large Mobile Devices (481px - 767px) */
+        @media (max-width: 640px) {
+            .header {
+                padding: 1.5rem;
+                min-height: 90vh;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2.5rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-container {
+                grid-template-columns: 1fr;
+            }
+
+            .goals-list {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-node {
+                min-width: 140px;
+                padding: 1.25rem 0.75rem;
+            }
+        }
+
+        /* Small Mobile Devices (320px - 480px) */
+        @media (max-width: 480px) {
+            /* Header */
+            .header {
+                padding: 1rem;
+                min-height: 85vh;
+            }
+
+            .name {
+                font-size: 1.75rem;
+            }
+
+            .role {
+                font-size: 1rem;
+            }
+
+            .date {
+                font-size: 0.9rem;
+            }
+
+            .overview-text {
+                font-size: 0.9rem;
+                margin: 1.5rem auto;
+            }
+
+            .tech-stack {
+                gap: 0.4rem;
+            }
+
+            .tech-badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.7rem;
+            }
+
+            /* Sections */
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Cards */
+            .card {
+                padding: 1.5rem;
+            }
+
+            .contribution-card {
+                padding: 1rem;
+            }
+
+            .card-number {
+                font-size: 1.75rem;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .card-content {
+                font-size: 0.85rem;
+            }
+
+            .card-content li {
+                font-size: 0.8rem;
+                padding: 0.4rem 0;
+            }
+
+            /* Stats */
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+            }
+
+            /* Network Diagram */
+            .network-diagram {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .network-node {
+                width: 100px;
+                height: 100px;
+            }
+
+            .node-icon {
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .node-label {
+                font-size: 0.7rem;
+            }
+
+            /* Tech Expertise */
+            .expertise-category {
+                padding: 1.5rem;
+            }
+
+            .category-icon {
+                font-size: 1.8rem;
+            }
+
+            .category-title {
+                font-size: 1rem;
+            }
+
+            .skill-name {
+                font-size: 0.85rem;
+            }
+
+            /* Project Flow */
+            .project-flow {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .flow-container {
+                gap: 0.75rem;
+            }
+
+            .flow-node {
+                min-width: 120px;
+                padding: 1rem 0.75rem;
+            }
+
+            .flow-node-number {
+                font-size: 1.75rem;
+            }
+
+            .flow-node-title {
+                font-size: 0.9rem;
+            }
+
+            .flow-node-desc {
+                font-size: 0.75rem;
+                padding: 0.4rem;
+            }
+
+            .flow-node::after {
+                right: -1.25rem;
+                font-size: 1.5rem;
+            }
+
+            /* Goals */
+            .goal-item {
+                padding: 1.25rem;
+            }
+
+            .goal-icon {
+                font-size: 2rem;
+            }
+
+            .goal-title {
+                font-size: 1rem;
+            }
+
+            .goal-description {
+                font-size: 0.9rem;
+            }
+
+            .goal-badge {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.8rem;
+            }
+
+            /* Metrics */
+            .metric-card {
+                padding: 1rem;
+            }
+
+            .metric-icon {
+                font-size: 1.5rem;
+            }
+
+            .metric-value {
+                font-size: 1.25rem;
+            }
+
+            .metric-label {
+                font-size: 0.8rem;
+            }
+
+            /* Database Schema */
+            .db-table {
+                margin-bottom: 1rem;
+            }
+
+            .db-table-header {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+
+            .db-field {
+                padding: 0.4rem;
+                font-size: 0.8rem;
+            }
+
+            /* Terminal */
+            .terminal-header {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .terminal-body {
+                padding: 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            /* Code Blocks */
+            .code-block {
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .code-line {
+                font-size: 0.75rem;
+            }
+
+            /* API Endpoints */
+            .api-endpoint {
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .api-method {
+                font-size: 0.7rem;
+                padding: 0.15rem 0.5rem;
+            }
+
+            .api-path {
+                font-size: 0.75rem;
+            }
+
+            /* Buttons */
+            .project-details-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            /* Modal */
+            .modal-content {
+                padding: 1.25rem;
+                width: 98%;
+                max-height: 90vh;
+                border-radius: 15px;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-section-title {
+                font-size: 1rem;
+            }
+
+            .modal-skill-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 2rem 1rem;
+            }
+
+            .closing-note {
+                font-size: 1rem;
+            }
+
+            /* Git Graph */
+            .git-graph {
+                gap: 0.4rem;
+                padding: 0.8rem;
+            }
+
+            /* Progress Container */
+            .progress-container {
+                padding: 1rem;
+            }
+        }
+
+        /* Extra Small Devices (max-width: 320px) */
+        @media (max-width: 320px) {
+            .name {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .flow-node {
+                min-width: 100px;
+                padding: 0.75rem 0.5rem;
+            }
+
+            .network-node {
+                width: 80px;
+                height: 80px;
+            }
+
+            .node-icon {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Landscape Orientation for Mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .header {
+                min-height: 100vh;
+                padding: 1rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .bg-animation,
+            .matrix-bg,
+            .scroll-progress {
+                display: none;
+            }
+
+            .card:hover,
+            .flow-node:hover,
+            .network-node:hover {
+                transform: none;
+                box-shadow: none;
+            }
         }
     </style>
 </head>
