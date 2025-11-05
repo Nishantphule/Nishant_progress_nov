@@ -189,6 +189,8 @@
             padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            overflow: visible;
+            position: relative;
         }
 
         .section-title {
@@ -363,6 +365,8 @@
         .card-content {
             color: var(--text-secondary);
             line-height: 1.8;
+            overflow: visible;
+            position: relative;
         }
 
         .card-content ul {
@@ -1091,6 +1095,7 @@
             background: rgba(99, 102, 241, 0.03);
             border-radius: 20px;
             min-height: 400px;
+            overflow: visible;
         }
 
         .network-node {
@@ -1109,55 +1114,52 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
             overflow: visible;
+            z-index: 1;
         }
 
-        .network-node::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: -1;
+        .network-node > * {
+            position: relative;
+            z-index: 2;
         }
 
         .network-node::after {
             content: '';
             position: absolute;
-            width: 140%;
-            height: 140%;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
             border-radius: 20px;
             border: 2px solid var(--primary-color);
             opacity: 0;
             transition: all 0.4s;
-            z-index: -2;
+            z-index: -1;
+            pointer-events: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .network-node:hover {
             transform: translateY(-10px) scale(1.1);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6), 0 0 30px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6), 0 0 30px rgba(99, 102, 241, 0.4), inset 0 0 20px rgba(99, 102, 241, 0.1);
             border-color: var(--accent-color);
             animation: node-glow-hover 2s ease-in-out infinite;
+            z-index: 10;
+            background: var(--light-bg);
+            opacity: 1;
         }
 
         @keyframes node-glow-hover {
             0%, 100% {
-                box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6), 0 0 30px rgba(99, 102, 241, 0.4);
+                box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6), 0 0 30px rgba(99, 102, 241, 0.4), inset 0 0 20px rgba(99, 102, 241, 0.1);
             }
             50% {
-                box-shadow: 0 15px 40px rgba(99, 102, 241, 0.8), 0 0 40px rgba(99, 102, 241, 0.6);
+                box-shadow: 0 15px 40px rgba(99, 102, 241, 0.8), 0 0 40px rgba(99, 102, 241, 0.6), inset 0 0 25px rgba(99, 102, 241, 0.15);
             }
-        }
-
-        .network-node:hover::before {
-            opacity: 0.15;
         }
 
         .network-node:hover::after {
-            opacity: 0.5;
-            transform: scale(1.1);
+            opacity: 0.4;
+            transform: translate(-50%, -50%) scale(1.05);
         }
 
         .node-icon {
@@ -1166,6 +1168,9 @@
             filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
             animation: icon-pulse 3s ease-in-out infinite;
             display: block;
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
         }
 
         @keyframes icon-pulse {
@@ -1186,6 +1191,9 @@
             text-align: center;
             line-height: 1.3;
             display: block;
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
         }
 
         /* Animated Connection Lines */
@@ -1370,6 +1378,13 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .db-schema {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
 
         .db-table {
@@ -2003,6 +2018,48 @@
             /* Database Schema */
             .db-schema {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .db-table {
+                min-width: 100%;
+            }
+
+            /* Learning & Skill Development Cards */
+            .cards-container:has(.card:has(.db-schema)) {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-container:has(.card:has(.network-diagram)) {
+                grid-template-columns: 1fr;
+            }
+
+            /* System Architecture Network Diagram */
+            .network-diagram {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+                padding: 1rem !important;
+                min-height: auto !important;
+            }
+
+            .network-node {
+                width: 90px;
+                height: 90px;
+            }
+
+            .node-icon {
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .node-label {
+                font-size: 0.75rem;
+            }
+
+            /* Ensure cards in Learning & Skill Development are responsive */
+            .card:has(.db-schema) .card-content,
+            .card:has(.network-diagram) .card-content {
+                overflow: visible;
             }
 
             /* Terminal */
@@ -2077,6 +2134,24 @@
             .flow-node {
                 min-width: 140px;
                 padding: 1.25rem 0.75rem;
+            }
+
+            /* Learning & Skill Development - 640px */
+            .cards-container:has(.card:has(.db-schema)),
+            .cards-container:has(.card:has(.network-diagram)) {
+                grid-template-columns: 1fr;
+            }
+
+            /* System Architecture - 640px */
+            .network-diagram {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            /* Database Schema - 640px */
+            .db-schema {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
         }
 
@@ -2165,9 +2240,10 @@
 
             /* Network Diagram */
             .network-diagram {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 1rem;
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+                padding: 1rem !important;
+                min-height: auto !important;
             }
 
             .network-node {
@@ -2182,6 +2258,30 @@
 
             .node-label {
                 font-size: 0.7rem;
+            }
+
+            /* Database Schema - Mobile */
+            .db-schema {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .db-table {
+                min-width: 100% !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* Learning & Skill Development - Mobile */
+            .cards-container:has(.card:has(.db-schema)),
+            .cards-container:has(.card:has(.network-diagram)) {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .card:has(.db-schema),
+            .card:has(.network-diagram) {
+                padding: 1.5rem !important;
+                overflow: visible !important;
             }
 
             /* Tech Expertise */
@@ -2880,8 +2980,9 @@
                         <div class="db-table">
                             <div class="db-table-header">MySQL</div>
                             <div class="db-table-body">
-                                <div class="db-field">transactions <span class="db-field-type">Table</span></div>
-                                <div class="db-field">reports <span class="db-field-type">Table</span></div>
+                                <div class="db-field">student_data <span class="db-field-type">Table</span></div>
+                                <div class="db-field">exam_records <span class="db-field-type">Table</span></div>
+                                <div class="db-field">institute_master <span class="db-field-type">Table</span></div>
                             </div>
                         </div>
                     </div>
